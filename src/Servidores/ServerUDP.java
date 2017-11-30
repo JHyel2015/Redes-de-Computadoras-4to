@@ -16,16 +16,16 @@ public class ServerUDP {
             //Receive Packet
          byte bufferReceive[]=new byte[128];
             DatagramPacket receivePack=new DatagramPacket(bufferReceive,bufferReceive.length);
-            serverSock.receive(receivePack);
-            InetAddress clientAdd=receivePack.getAddress();
-            int clientPort=receivePack.getPort();
-            System.out.println("Client port: "+clientPort);
+            serverSock.receive(receivePack);//recibe el paquete
+            InetAddress clientAdd=receivePack.getAddress();//obtiene el IP de donde se envio el paquete
+            int clientPort=receivePack.getPort();//obtiene el puerto que utilza el cliente
+            System.out.println("Client port: "+clientPort);//muestra en consola el puerto usado por el cliente
             
             //Send Packet
-            String msg="Hola Mundo";
-            byte bufferSend[]=msg.getBytes();
-            DatagramPacket sendPack=new DatagramPacket(bufferSend,bufferSend.length,clientAdd,clientPort);
-            serverSock.send(sendPack);
+            String msg="Mensaje de Richard Jorge Heredia";//mensaje que se envia
+            byte bufferSend[]=msg.getBytes();//codifica el mensaje en un arreglo
+            DatagramPacket sendPack=new DatagramPacket(bufferSend,bufferSend.length,clientAdd,clientPort);//se pone en el datagrama el mensaje codificado y el tamaño
+            serverSock.send(sendPack);//envia el mensaje
             
         }
        }finally{
