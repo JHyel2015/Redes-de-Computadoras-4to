@@ -15,7 +15,7 @@ public class ServerTCP {
                 Socket socket = serverSocket.accept();//se crea un socket para el envio de la respuesta
                 try{
                     PrintWriter out= new PrintWriter(socket.getOutputStream(),true);//se envia la respuesta
-                    out.println("Message drom server");//mensaje que se mostrara al cliente
+                    out.println("Message from Richard Jorge Heredia");//mensaje que se mostrara al cliente
                 }finally{
                     socket.close();//cerramos el socket
                 }
